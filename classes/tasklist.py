@@ -10,12 +10,13 @@ class TaskList():
         
     def startMenu(self):
         try:  
-            print(" Selecciona que quieres hacer:", "\n", 
-                  "   [1] Agregar nueva tarea.", "\n", 
-                  "   [2] Eliminar una tarea.", "\n", 
-                  "   [3] Editar estado de la tarea.", "\n", 
-                  "   [4] Mostrar la lista de tareas.", "\n",
-                  "   [5] Salir.", "\n")
+            
+            print("\n Selecciona que quieres hacer:", "\n", 
+                  "\033[93m"+"   [1] " +"\033[0m"+ "Agregar nueva tarea.", "\n", 
+                  "\033[93m"+"   [2] " +"\033[0m"+ "Eliminar una tarea.", "\n", 
+                  "\033[93m"+"   [3] " +"\033[0m"+ "Editar estado de la tarea.", "\n", 
+                  "\033[93m"+"   [4] " +"\033[0m"+ "Mostrar la lista de tareas.", "\n",
+                  "\033[93m"+"   [5] " +"\033[0m"+ "Salir.", "\n")
             
             selected_option = int(input("Selecciona que hacer: "))
             
@@ -40,7 +41,7 @@ class TaskList():
                 
             if selected_option == 5:
                 print("----------------------------------------------")
-                print("\n          CERRANDO LISTA DE TAREAS \n")
+                print("\033[91m"+"\n          CERRANDO LISTA DE TAREAS \n"+"\033[0m")
                 print("----------------------------------------------\n")
                 
                 exit() # Termina la ejecución del programa
@@ -48,13 +49,13 @@ class TaskList():
         except ValueError: 
             system("cls")
             print("----------------------------------------------")
-            print("\n      ERROR! Introduce un número válido \n")
+            print("\033[91m"+"\n      ERROR! Introduce un número válido \n"+"\033[0m")
             print("----------------------------------------------\n")
     
         except Exception: 
             system("cls")
             print("----------------------------------------------")
-            print("\n    ERROR! Debes elegir una de las opciones. \n")
+            print("\033[91m"+"\n    ERROR! Debes elegir una de las opciones. \n" + "\033[0m")
             print("----------------------------------------------\n")            
             
         self.startMenu() 
@@ -76,7 +77,7 @@ class TaskList():
         system("cls")
         
         print("\n----------------------------------------------\n")
-        print("Tarea guardada!")
+        print("\033[92m"+"Tarea guardada!"+"\033[0m")
         print("\n----------------------------------------------\n")
         
         self.startMenu()
@@ -88,7 +89,7 @@ class TaskList():
         print("----------------------------------------------\n")
 
         if(len(self.task_list) == 0):
-            print("         No hay tareas que eliminar")
+            print("\033[91m"+"         No hay tareas que eliminar"+"\033[0m")
             print("\n----------------------------------------------\n")
             self.startMenu()
             
@@ -115,19 +116,19 @@ class TaskList():
             
             system("cls")
             print("----------------------------------------------")
-            print("\n      ERROR! El ID no existe en la lista \n")
+            print("\033[91m" + "\n      ERROR! El ID no existe en la lista \n"+"\033[0m")
             
                 
         except ValueError:
             system("cls")
             print("----------------------------------------------")
-            print("\n      ERROR! Introduce un número válido \n")
+            print("\033[91m"+"\n      ERROR! Introduce un número válido \n"+"\033[0m")
             
             
         except Exception :
             system("cls")
             print("----------------------------------------------")
-            print("\n    ERROR! Introduce un número mayor que 0 \n")
+            print("\033[91m"+"\n    ERROR! Introduce un número mayor que 0 \n"+"\033[0m")
         
         self.delTask()
    
@@ -139,7 +140,7 @@ class TaskList():
 
             
         if(len(self.task_list) == 0):
-            print("         No hay tareas que modificar")
+            print("\033[91m"+"         No hay tareas que modificar"+"\033[0m")
             print("\n----------------------------------------------\n")
             self.startMenu()
             
@@ -160,6 +161,7 @@ class TaskList():
                 if task_info["ID"] == task_id:
                     task.toggle_done() 
                     
+                    
                     system("cls")
         
                     self.showTasks() 
@@ -167,18 +169,18 @@ class TaskList():
             system("cls")
             
             print("----------------------------------------------")
-            print("\n      ERROR! El ID no existe en la lista \n")
+            print("\033[91m"+"\n      ERROR! El ID no existe en la lista \n"+"\033[0m")
 
         except ValueError:
             system("cls")
             print("----------------------------------------------")
-            print("\n      ERROR! Introduce un número válido \n")
+            print("\033[91m"+"\n      ERROR! Introduce un número válido \n"+"\033[0m")
             
             
         except Exception :
             system("cls")
             print("----------------------------------------------")
-            print("\n    ERROR! Introduce un número mayor que 0 \n")
+            print("\033[91m"+"\n    ERROR! Introduce un número mayor que 0 \n"+"\033[0m")
                 
         self.taskDone()
             
